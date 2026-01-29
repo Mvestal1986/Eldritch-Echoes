@@ -1,6 +1,7 @@
 """Core game engine implementation."""
 
 from __future__ import annotations
+from src.character.create import create_investigator, list_archetypes
 
 import time
 
@@ -19,7 +20,10 @@ class Game:
         elif input_str.lower() == "help":
             print("Available commands: exit, help")
         elif input_str.lower() == "create character":
-            print("Character creation not implemented yet.")
+            name = input("Enter character name: ")
+            archetype = input("Enter character archetype: ")
+            self.character = create_investigator(name, archetype)
+            print("Character created successfully!")
         else:
             print(f"Unknown command: {input_str}. Type 'help' for available commands.")
 
